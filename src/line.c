@@ -25,6 +25,19 @@ void interpolate(int i0, int d0, int i1, int d1, int *output) {
   }
 }
 
+void interpolatef(int i0, float d0, int i1, float d1, float *output) {
+  assert(output!=NULL && "Null pointer passed to interpolation");
+  if (i0 == i1) {
+    output[0] = d0;
+  }
+  const float a = (float) (d1 - d0) / (float) (i1 - i0);
+  float d = d0;
+  for (int i = i0; i <= i1; ++i) {
+    output[i - i0] = d;
+    d += a;
+  }
+}
+
 void draw_line(iVector2 pa, iVector2 pb, Color c) {
   int dx = abs(pb.x - pa.x);
   int dy = abs(pb.y - pa.y);

@@ -8,5 +8,10 @@ typedef struct{
   int x;
   int y;
 } iVector2;
+typedef struct{
+  int x;
+  int y;
+  float h;
+} Vertex;
 
 #endif //STRUCTS_H

@@ -9,9 +9,9 @@
 
 int main(void) {
   InitWindow(cw, ch, "rasterizer");
-  iVector2 pa = {-100, 200};
-  iVector2 pb = {0, 300};
-  iVector2 pc = {100, 0};
+  Vertex pa = {-100, 200,0.5};
+  Vertex pb = {-10, 300, 0.0};
+  Vertex pc = {200, 0, 1.0};
 
   while (!WindowShouldClose()) {
     BeginDrawing();
@@ -19,7 +19,6 @@ int main(void) {
     ClearBackground(RAYWHITE);
     // ^ DO NOT  MOVE ^
     draw_filled_triangle(pa,pb,pc, BLUE);
-    draw_wireframe_triangle(pa,pb,pc, BLACK);
     EndDrawing();
   }
 
