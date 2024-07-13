@@ -3,18 +3,19 @@
 
 #include "raylib.h"
 #include "structs.h"
-#include "line.h"
+#include "triangle.h"
 #include "defs.h"
 
 
 int main(void) {
   InitWindow(cw, ch, "rasterizer");
   iVector2 pa = {0, 0};
-  iVector2 pb = {2000, -100};
+  iVector2 pb = {30, -100};
+  iVector2 pc = {100, -200};
 
   while (!WindowShouldClose()) {
     BeginDrawing();
-    draw_line(pa, pb, BLACK);
+    draw_wireframe_triangle(pa,pb,pc, BLACK);
     ClearBackground(RAYWHITE);
     EndDrawing();
   }
