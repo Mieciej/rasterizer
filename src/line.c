@@ -30,9 +30,7 @@ void draw_line(iVector2 pa, iVector2 pb, Color c) {
   int dy = abs(pb.y - pa.y);
   if (dx > dy) {
     if (pb.x < pa.x) {
-      iVector2 tmp = pb;
-      pb = pa;
-      pa = tmp;
+      swap_ivectors(&pa,&pb);
     }
     int *y = malloc(sizeof(int) * (dx + 1));
     interpolate(pa.x, pa.y, pb.x, pb.y, y);
@@ -42,9 +40,7 @@ void draw_line(iVector2 pa, iVector2 pb, Color c) {
     free(y);
   } else {
     if (pb.y < pa.y) {
-      iVector2 tmp = pb;
-      pb = pa;
-      pa = tmp;
+      swap_ivectors(&pa,&pb);
     }
     int *x = malloc(sizeof(int) * (dy + 1));
     interpolate(pa.y, pa.x, pb.y, pb.x, x);

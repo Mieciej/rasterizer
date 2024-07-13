@@ -9,14 +9,17 @@
 
 int main(void) {
   InitWindow(cw, ch, "rasterizer");
-  iVector2 pa = {0, 0};
-  iVector2 pb = {30, -100};
-  iVector2 pc = {100, -200};
+  iVector2 pa = {-100, 200};
+  iVector2 pb = {0, 300};
+  iVector2 pc = {100, 0};
 
   while (!WindowShouldClose()) {
     BeginDrawing();
-    draw_wireframe_triangle(pa,pb,pc, BLACK);
+    // \/ DO NOT  MOVE \/
     ClearBackground(RAYWHITE);
+    // ^ DO NOT  MOVE ^
+    draw_filled_triangle(pa,pb,pc, BLUE);
+    draw_wireframe_triangle(pa,pb,pc, BLACK);
     EndDrawing();
   }
 
