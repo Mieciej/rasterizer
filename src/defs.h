@@ -7,4 +7,6 @@
 
 # define cw 1280
 # define ch 720
+# define vw 16
+# define vh 9
 #endif //DEFS_H
