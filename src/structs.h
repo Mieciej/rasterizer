@@ -4,6 +4,8 @@
 
 #ifndef STRUCTS_H
 #define STRUCTS_H
+#include <raylib.h>
+
 typedef struct{
   int x;
   int y;
@@ -14,5 +16,10 @@ typedef struct{
   int z;
   float h;
 } Vertex;
-
+typedef struct {
+  unsigned int a;
+  unsigned int b;
+  unsigned int c;
+  Color color;
+} Triangle;
 #endif //STRUCTS_H
