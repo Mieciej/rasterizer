@@ -8,7 +8,7 @@
 #include <raylib.h>
 #include "defs.h"
 void put_pixel(int x, int y, Color c) {
-  iVector2 pos = {.x = x + cw / 2, .y = -y + ch / 2};
+  ivector_t pos = {.x = x + cw / 2, .y = -y + ch / 2};
   DrawPixel(pos.x, pos.y, c);
 }
 
@@ -38,7 +38,7 @@ void interpolatef(int i0, float d0, int i1, float d1, float *output) {
   }
 }
 
-void draw_line(iVector2 pa, iVector2 pb, Color c) {
+void draw_line(ivector_t pa, ivector_t pb, Color c) {
   int dx = abs(pb.x - pa.x);
   int dy = abs(pb.y - pa.y);
   if (dx > dy) {

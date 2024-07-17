@@ -9,4 +9,5 @@
 # define ch 720
 # define vw 16
 # define vh 9
+# define D 10.0f
 #endif //DEFS_H

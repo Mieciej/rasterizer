@@ -9,17 +9,27 @@
 typedef struct{
   int x;
   int y;
-} iVector2;
+} ivector_t;
 typedef struct{
   int x;
   int y;
   int z;
   float h;
-} Vertex;
+} vertex_t;
 typedef struct {
   unsigned int a;
   unsigned int b;
   unsigned int c;
   Color color;
-} Triangle;
+} triangle_t;
+typedef struct {
+  Vector3 *vertices;
+  triangle_t *triangles;
+  unsigned int n_triangles;
+}model_t;
+
+typedef struct {
+  model_t *model;
+  Vector3 pos;
+}instance_t;
 #endif //STRUCTS_H

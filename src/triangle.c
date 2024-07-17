@@ -11,13 +11,13 @@
 #include <tgmath.h>
 #include <math.h>
 
-void draw_wireframe_triangle(iVector2 p0, iVector2 p1, iVector2 p2, Color c) {
+void draw_wireframe_triangle(ivector_t p0, ivector_t p1, ivector_t p2, Color c) {
   draw_line(p0, p1, c);
   draw_line(p1, p2, c);
   draw_line(p2, p0, c);
 }
 
-void draw_filled_triangle(Vertex p0, Vertex p1, Vertex p2, Color c) {
+void draw_filled_triangle(vertex_t p0, vertex_t p1, vertex_t p2, Color c) {
   // sort vertices from lowest to highest
   if (p1.y < p0.y) {
     swap_vertices(&p1, &p0);
