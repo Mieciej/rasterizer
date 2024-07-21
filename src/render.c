@@ -30,11 +30,11 @@ Matrix get_3d_to_canvas_matrix() {
 void render_object(const Vector3 *vertices, const triangle_t *triangles, size_t n_triangles, transform_t obj_transform,
                    transform_t camera) {
   Matrix transformation = MatrixIdentity();
-  transformation = MatrixMultiply(obj_transform.scale, transformation);
-  transformation = MatrixMultiply(obj_transform.rot, transformation);
-  transformation = MatrixMultiply(obj_transform.trans, transformation);
-  transformation = MatrixMultiply(MatrixInvert(camera.trans), transformation);
-  transformation = MatrixMultiply(MatrixInvert(camera.rot), transformation);
+  transformation = MatrixMultiply(transformation, obj_transform.scale);
+  transformation = MatrixMultiply(transformation, obj_transform.rot);
+  transformation = MatrixMultiply(transformation, obj_transform.trans);
+  transformation = MatrixMultiply(transformation, MatrixInvert(camera.trans));
+  transformation = MatrixMultiply(transformation, MatrixInvert(camera.rot));
   for (int i = 0; i < n_triangles; ++i) {
     Vector3 a = Vector3Transform(vertices[triangles[i].a], transformation);
     Vector3 b = Vector3Transform(vertices[triangles[i].b], transformation);

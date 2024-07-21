@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include <stdio.h>
 
 #include "structs.h"
 #include "defs.h"
@@ -12,12 +13,16 @@ int main(void) {
   initialise_cube(&cube);
   instance_t scene[2];
   scene[0] = (instance_t){
-    &cube, (transform_t){.trans = MatrixTranslate(-2.5, 3, 10), .scale = MatrixScale(1, 1, 1), MatrixIdentity()}
+    &cube, (transform_t){.trans = MatrixTranslate(0,1,1), .scale = MatrixScale(1, 1, 1), MatrixRotateZ(-30)}
   };
   scene[1] = (instance_t){
-    &cube, (transform_t){.trans = MatrixTranslate(2.5, 3, 10), .scale = MatrixScale(1, 1, 1), MatrixIdentity()}
+    &cube, (transform_t){.trans = MatrixTranslate(2.5, 0, 1), .scale = MatrixScale(1, 1, 1), MatrixRotateY(80)}
   };
+  float passing_time = 0.0f;
   while (!WindowShouldClose()) {
+    scene[0].transform.rot = MatrixMultiply(MatrixRotateZ(passing_time),MatrixRotateY(-passing_time));
+    scene[0].transform.trans = MatrixTranslate(0,sin(passing_time)*2,1);
+    passing_time+=GetFrameTime();
     BeginDrawing();
     // \/ DO NOT  MOVE \/
     ClearBackground(RAYWHITE);
