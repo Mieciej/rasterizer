@@ -11,8 +11,12 @@ int main(void) {
   model_t cube;
   initialise_cube(&cube);
   instance_t scene[2];
-  scene[0] = (instance_t){&cube, (transform_t){.pos = {.x = -1.5, 1, 7}, .scale = 0.5, MatrixIdentity()}};
-  scene[1] = (instance_t){&cube, (transform_t){.pos = {.x = 2.5, 2, 7}, .scale = 0.3, MatrixRotateX(60)}};
+  scene[0] = (instance_t){
+    &cube, (transform_t){.trans = MatrixTranslate(-2.5, 3, 10), .scale = MatrixScale(1, 1, 1), MatrixIdentity()}
+  };
+  scene[1] = (instance_t){
+    &cube, (transform_t){.trans = MatrixTranslate(2.5, 3, 10), .scale = MatrixScale(1, 1, 1), MatrixIdentity()}
+  };
   while (!WindowShouldClose()) {
     BeginDrawing();
     // \/ DO NOT  MOVE \/

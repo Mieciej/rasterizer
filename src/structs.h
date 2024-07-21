@@ -30,8 +30,8 @@ typedef struct {
 }model_t;
 
 typedef struct {
-  Vector3 pos;
-  float scale;
+  Matrix trans;
+  Matrix scale;
   Matrix rot;
 }transform_t;
 typedef struct {

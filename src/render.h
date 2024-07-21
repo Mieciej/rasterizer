@@ -12,7 +12,7 @@ ivector_t project_vertex(Vector3 v);
 
 ivector_t viewport_to_canvas(float x, float y);
 
-void render_object(const Vector3 *vertices, const triangle_t *triangles, size_t n_triangles, transform_t transform);
+void render_object(const Vector3 *vertices, const triangle_t *triangles, size_t n_triangles, transform_t obj_transform,transform_t camera_transform);
 
 void render_scene(instance_t* scene, size_t n_instances);
 
