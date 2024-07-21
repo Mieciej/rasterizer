@@ -5,6 +5,7 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 #include <raylib.h>
+#include <raymath.h>
 
 typedef struct{
   int x;
@@ -29,7 +30,12 @@ typedef struct {
 }model_t;
 
 typedef struct {
-  model_t *model;
   Vector3 pos;
+  float scale;
+  Matrix rot;
+}transform_t;
+typedef struct {
+  model_t *model;
+  transform_t transform;
 }instance_t;
 #endif //STRUCTS_H
