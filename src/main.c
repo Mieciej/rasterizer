@@ -5,6 +5,7 @@
 #include "defs.h"
 #include "model.h"
 #include "render.h"
+#include "triangle.h"
 
 
 int main(void) {

@@ -10,11 +10,11 @@
 #include "defs.h"
 #include "triangle.h"
 
-ivector_t viewport_to_canvas(float x, float y) {
-  return (ivector_t){x * cw / vw, y * ch / vh};
+Vector2 viewport_to_canvas(float x, float y) {
+  return (Vector2){x * cw / vw, y * ch / vh};
 }
 
-ivector_t project_vertex(Vector3 v) {
+Vector2 project_vertex(Vector3 v) {
   return viewport_to_canvas((float) v.x * (float) D / (float) v.z, (float) v.y * (float) D / (float) v.z);
 }
 

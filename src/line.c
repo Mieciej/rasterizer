@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <raylib.h>
 #include "defs.h"
-void put_pixel(int x, int y, Color c) {
-  ivector_t pos = {.x = x + cw / 2, .y = -y + ch / 2};
+void put_pixel(float x, float y, Color c) {
+  Vector3 pos = {.x = x +(float)cw / 2, .y = -y + (float)ch / 2};
   DrawPixel(pos.x, pos.y, c);
 }
 
@@ -38,27 +38,27 @@ void interpolatef(int i0, float d0, int i1, float d1, float *output) {
   }
 }
 
-void draw_line(ivector_t pa, ivector_t pb, Color c) {
-  int dx = abs(pb.x - pa.x);
-  int dy = abs(pb.y - pa.y);
+void draw_line(Vector2 pa, Vector2 pb, Color c) {
+  int dx = abs((int)pb.x - (int)pa.x);
+  int dy = abs((int)pb.y - (int)pa.y);
   if (dx > dy) {
     if (pb.x < pa.x) {
       swap_ivectors(&pa,&pb);
     }
-    int *y = malloc(sizeof(int) * (dx + 1));
-    interpolate(pa.x, pa.y, pb.x, pb.y, y);
+    float *y = malloc(sizeof(float) * (dx + 1));
+    interpolatef(pa.x, pa.y, pb.x, pb.y, y);
     for (int x = pa.x; x <= pb.x; ++x) {
-      put_pixel(x, y[x - pa.x], c);
+      put_pixel(x, y[x - (int)pa.x], c);
     }
     free(y);
   } else {
     if (pb.y < pa.y) {
       swap_ivectors(&pa,&pb);
     }
-    int *x = malloc(sizeof(int) * (dy + 1));
-    interpolate(pa.y, pa.x, pb.y, pb.x, x);
+    float *x = malloc(sizeof(float) * (dy + 1));
+    interpolatef(pa.y, pa.x, pb.y, pb.x, x);
     for (int y = pa.y; y <= pb.y; ++y) {
-      put_pixel(x[y - pa.y], y, c);
+      put_pixel(x[y - (int)pa.y], y, c);
     }
     free(x);
   }

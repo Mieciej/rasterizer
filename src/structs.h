@@ -7,16 +7,6 @@
 #include <raylib.h>
 #include <raymath.h>
 
-typedef struct{
-  int x;
-  int y;
-} ivector_t;
-typedef struct{
-  int x;
-  int y;
-  int z;
-  float h;
-} vertex_t;
 typedef struct {
   unsigned int a;
   unsigned int b;
